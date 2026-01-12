@@ -426,10 +426,26 @@ div.className = "product";
 div.dataset.id = p.id;
 div.dataset.storage = storage;
 
+// 🔥 Ablauf-Status setzen
+const status = getExpiryStatus(p.expiry);
+if (status === "expired") div.classList.add("expired");
+if (status === "soon") div.classList.add("soon");
+
 div.innerHTML = `
     <div class="product-main">
-        <strong>${p.name}</strong>
-        <span class="quantity">x${p.quantity ?? 1}</span>
+        <strong>
+    ${p.name}
+    ${
+        getExpiryStatus(p.expiry) === "expired"
+            ? '<span class="status-icon">❌</span>'
+            : getExpiryStatus(p.expiry) === "soon"
+            ? '<span class="status-icon">⚠️</span>'
+            : ''
+    }
+</strong>
+
+<span class="quantity">x${p.quantity ?? 1}</span>
+
     </div>
 
     <div class="actions">
@@ -948,7 +964,7 @@ function renderStatForStorage(storage, title, elementId) {
         </div>
 
         <div class="stat-row">
-            <span>⚠️ Bald ablaufend</span>
+            <span>⚠️ Läuft bald abut</span>
             <strong>${soon}</strong>
         </div>
     `;

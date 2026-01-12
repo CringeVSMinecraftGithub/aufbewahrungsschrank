@@ -742,3 +742,25 @@ section {
         display: none;
     }
 }
+
+/* ========================
+   Ablauf-Warnungen
+======================== */
+
+/* Bald ablaufend (gelb) */
+.product.soon {
+    border-left: 5px solid #facc15; /* gelb */
+    background: #fffbe6;
+}
+
+/* Abgelaufen (rot) */
+.product.expired {
+    border-left: 5px solid #ef4444; /* rot */
+    background: #fff1f2;
+}
+
+/* kleines Status-Icon */
+.product .status-icon {
+    margin-left: 6px;
+    font-size: 14px;
+}
