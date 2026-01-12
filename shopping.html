@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Einkaufsliste</title>
+
+    <!-- Mobil wichtig -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Globales CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Optional: Icons -->
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+<main class="shopping-page">
+
+    <!-- ======================
+         TOP BAR
+    ======================= -->
+    <header class="shopping-topbar">
+        <button class="back-btn" onclick="history.back()">←</button>
+        <h1>🛒 Einkaufsliste</h1>
+        <div class="topbar-spacer"></div>
+    </header>
+
+    <!-- ======================
+         FORM CARD
+    ======================= -->
+    <section class="shopping-card">
+
+        <!-- PRODUKT -->
+        <div class="form-section">
+            <h3>📦 Produkt</h3>
+
+            <input
+                type="text"
+                id="item-name"
+                placeholder="Produktname"
+            >
+
+            <input
+                type="text"
+                id="item-brand"
+                placeholder="Marke (optional)"
+            >
+        </div>
+
+        <!-- MENGE -->
+        <div class="form-section">
+            <h3>⚖️ Menge</h3>
+
+            <div class="quantity-wrapper">
+    <div class="quantity-label">Anzahl</div>
+
+    <div class="quantity-control">
+        <button type="button" onclick="changeQty(-1)">−</button>
+        <span id="quantity">1</span>
+        <button type="button" onclick="changeQty(1)">+</button>
+    </div>
+</div>
+
+
+            <div class="weight-buttons">
+<button type="button" onclick="setWeight(this, '100g')">100g</button>
+<button type="button" onclick="setWeight(this, '250g')">250g</button>
+<button type="button" onclick="setWeight(this, '500g')">500g</button>
+<button type="button" onclick="setWeight(this, '1kg')">1kg</button>
+</div>
+
+<div class="weight-buttons">
+<button type="button" onclick="setWeight(this, '100ml')">100ml</button>
+<button type="button" onclick="setWeight(this, '250ml')">250ml</button>
+<button type="button" onclick="setWeight(this, '500ml')">500ml</button>
+<button type="button" onclick="setWeight(this, '1L')">1L</button>
+</div>
+
+        </div>
+
+        <!-- KATEGORIE -->
+        <div class="form-section">
+            <h3>🏷️ Kategorie</h3>
+
+            <select id="item-category">
+                <option value="Lebensmittel">Lebensmittel</option>
+                <option value="Getränke">Getränke</option>
+                <option value="Haushalt">Haushalt</option>
+            </select>
+        </div>
+
+        <!-- PRIORITÄT -->
+        <div class="form-section">
+            <h3>🚨 Priorität</h3>
+
+            <button
+                type="button"
+                class="priority-btn"
+                id="priority-btn"
+                onclick="togglePriority()"
+            >
+                🔥 Nicht dringend
+            </button>
+        </div>
+
+        <!-- ACTION -->
+        <button
+            type="button"
+            class="add-btn"
+            onclick="addShoppingItem()"
+        >
+            ➕ Zur Einkaufsliste hinzufügen
+        </button>
+
+    </section>
+
+    <!-- ======================
+         SHOPPING LIST
+    ======================= -->
+    <section
+        class="shopping-list"
+        id="shopping-list"
+    >
+        <!-- Wird per JS gefüllt -->
+    </section>
+
+</main>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBsPILic3ZRMF6zk2AZQur5u97O_OjfjHM",
+        authDomain: "aufbewahrungsschrank-1a75a.firebaseapp.com",
+        projectId: "aufbewahrungsschrank-1a75a",
+        storageBucket: "aufbewahrungsschrank-1a75a.appspot.com",
+        messagingSenderId: "466103400824",
+        appId: "1:466103400824:web:d5a736b170a7ad2b8c708d"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+</script>
+
+<!-- SHOPPING LOGIK -->
+<script src="shopping.js"></script>
+
+
+</body>
+</html>

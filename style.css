@@ -764,3 +764,489 @@ section {
     margin-left: 6px;
     font-size: 14px;
 }
+
+/* Einkaufswagen Button */
+.shopping-btn {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.shopping-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Sektionen */
+.form-section h3 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form-section input,
+.form-section select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Mengensteuerung */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.quantity-control button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #e5e7eb;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.quantity-control span {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Gewicht */
+.weight-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.weight-buttons button {
+    flex: 1;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #f9fafb;
+    cursor: pointer;
+}
+
+/* Priorität */
+.priority-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    background: #e5e7eb;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Hinzufügen */
+.add-btn {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Listeneinträge */
+.shopping-item {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.shopping-item.urgent {
+    border-left: 5px solid #ef4444;
+    background: #fff1f2;
+}
+
+/* Überschriften wie Hauptseite */
+.shopping-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Buttons einheitlich */
+.add-btn,
+.priority-btn,
+.weight-buttons button,
+.quantity-control button {
+    transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+
+/* Gewichtsauswahl aktiv */
+.weight-buttons button.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* Priorität */
+.priority-btn.urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Section Cards wie Kategorien */
+.form-section {
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 12px;
+}
+
+/* Inputs wie Produkt-Form */
+.form-section input,
+.form-section select {
+    background: white;
+}
+
+/* Mobile Feinschliff */
+@media (max-width: 480px) {
+    .shopping-card {
+        padding: 14px;
+    }
+
+    .shopping-header h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ========================
+   SHOPPING HEADER
+======================== */
+.shopping-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+
+.shopping-topbar h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.topbar-spacer {
+    flex: 1;
+}
+
+/* ========================
+   SHOPPING LIST
+======================== */
+.shopping-list {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.shopping-category {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    border-left: 6px solid #6366f1;
+    padding-left: 10px;
+}
+
+.shopping-item {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+.shopping-item.urgent {
+    border-left: 6px solid #ef4444;
+    background: #fff1f2;
+}
+
+.shopping-item small {
+    color: #64748b;
+}
+
+/* ========================
+   MENGE
+======================== */
+.quantity-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.quantity-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* ========================
+   SHOPPING ITEM CARD
+======================== */
+.shopping-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-left: 5px solid transparent;
+}
+
+.shopping-item-card.urgent {
+    border-left-color: #ef4444;
+    background: #fff1f2;
+}
+
+.shopping-item-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.shopping-item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.shopping-item-meta.brand {
+    font-style: italic;
+}
+
+/* ========================
+   DELETE BUTTON
+======================== */
+.delete-btn {
+    border: none;
+    background: #fee2e2;
+    color: #b91c1c;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+.urgent-label {
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.shopping-page {
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopping-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.25);
+}
+
+.shopping-topbar h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.topbar-spacer {
+    flex: 1;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.shopping-card {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 20px;
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(15,23,42,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 14px;
+}
+
+.form-section h3 {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.quantity-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.quantity-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.quantity-control button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #f1f5f9;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.weight-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.weight-buttons button {
+    padding: 10px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.weight-buttons button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.add-btn {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    box-shadow: 0 10px 20px rgba(37,99,235,0.35);
+}
+
+.shopping-list {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 24px;
+}
+
+.shopping-category {
+    margin: 20px 0 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    border-left: 5px solid var(--primary);
+    padding-left: 10px;
+}
+
+.shopping-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 20px rgba(15,23,42,0.06);
+    border-left: 5px solid transparent;
+}
+
+.shopping-item-card.urgent {
+    border-left-color: var(--expired-border);
+    background: var(--expired-bg);
+}
+
+.delete-btn {
+    border: none;
+    background: var(--expired-bg);
+    color: var(--expired-border);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}

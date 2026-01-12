@@ -986,4 +986,6 @@ function closeStatsModal() {
     statsModal.classList.add("hidden");
 }
 
-
+document.getElementById("shopping-btn")?.addEventListener("click", () => {
+    window.location.href = "shopping.html";
+});
