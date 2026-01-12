@@ -235,11 +235,38 @@ function closeCategoryModal() {
 
 function openEditModal(product) {
     editingProductId = product.id;
+
     editName.value = product.name;
     editCategory.value = product.category;
-    editFach.value = product.fach;
     editExpiry.value = product.expiry;
     editQuantity.value = product.quantity ?? 1;
+
+    // 🔧 FACH-DROPDOWN LEEREN
+    editFach.innerHTML = "";
+
+    // 🔧 RICHTIGE FÄCHER JE NACH STORAGE
+    let max = 4;
+    let label = "Fach";
+
+    if (product.storage === "tk") {
+        max = 3;
+        label = "Tiefkühltruhe";
+    }
+
+    if (product.storage === "keller") {
+        max = 4;
+        label = "Kellerfach";
+    }
+
+    for (let i = 1; i <= max; i++) {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = `${label} ${i}`;
+        editFach.appendChild(opt);
+    }
+
+    // 🔧 AKTUELLES FACH SETZEN
+    editFach.value = String(product.fach);
 
     updateCategorySelectColor(editCategory);
     editModal.classList.remove("hidden");
