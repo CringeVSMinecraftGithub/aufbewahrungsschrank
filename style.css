@@ -1250,3 +1250,17 @@ section {
     font-size: 16px;
     cursor: pointer;
 }
+
+.to-shopping-btn {
+    border: none;
+    background: #e0e7ff;
+    color: #1e40af;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.to-shopping-btn:hover {
+    background: #c7d2fe;
+}

@@ -434,25 +434,34 @@ if (status === "soon") div.classList.add("soon");
 div.innerHTML = `
     <div class="product-main">
         <strong>
-    ${p.name}
-    ${
-        getExpiryStatus(p.expiry) === "expired"
-            ? '<span class="status-icon">❌</span>'
-            : getExpiryStatus(p.expiry) === "soon"
-            ? '<span class="status-icon">⚠️</span>'
-            : ''
-    }
-</strong>
+            ${p.name}
+            ${
+                getExpiryStatus(p.expiry) === "expired"
+                    ? '<span class="status-icon">❌</span>'
+                    : getExpiryStatus(p.expiry) === "soon"
+                    ? '<span class="status-icon">⚠️</span>'
+                    : ''
+            }
+        </strong>
 
-<span class="quantity">x${p.quantity ?? 1}</span>
-
+        <span class="quantity">x${p.quantity ?? 1}</span>
     </div>
 
     <div class="actions">
         <button class="edit-btn">✏️</button>
+
+        <button
+            class="to-shopping-btn"
+            title="Zur Einkaufsliste"
+            onclick="addFromStockToShopping('${p.id}')"
+        >
+            🛒
+        </button>
+
         <button class="delete-btn">🗑️</button>
     </div>
 `;
+
 
 // Popup nur bei Klick auf Produkt (nicht Buttons / Drag)
 div.addEventListener("click", e => {
@@ -989,3 +998,21 @@ function closeStatsModal() {
 document.getElementById("shopping-btn")?.addEventListener("click", () => {
     window.location.href = "shopping.html";
 });
+
+async function addFromStockToShopping(productId) {
+    const p = products.find(prod => prod.id === productId);
+    if (!p) return;
+
+    await db.collection("shopping_list").add({
+        name: p.name,
+        brand: p.brand || "",
+        category: p.category || "Sonstiges",
+        quantity: 1,
+        weight: "",
+        urgent: false, // 👈 IMMER NORMAL
+        checked: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    showToast("🛒 Zur Einkaufsliste hinzugefügt");
+}
