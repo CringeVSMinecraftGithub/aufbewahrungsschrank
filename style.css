@@ -442,32 +442,57 @@ section {
 }
 
 /* ========================
-   PRODUKT KOMPAKT
+   PRODUKT KOMPAKT (NEU)
 ======================== */
 .product {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
     padding: 8px 10px;
     font-weight: 600;
     cursor: pointer;
     user-select: none;
+
+    background: #f1f5f9;
+    border-radius: 12px;
 }
 
-.product {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-}
-
+/* Produktname – darf umbrechen */
 .product-name {
     font-weight: 600;
-    cursor: pointer;
-    flex: 1;
+    line-height: 1.3;
+    word-break: break-word; /* wichtig für lange Wörter */
 }
 
+/* Aktionsbuttons – immer unten */
+.product .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Buttons */
 .product .actions button {
     cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 18px;
 }
 
+@media (max-width: 600px) {
+    .product {
+        padding: 12px;
+    }
+
+    .product-name {
+        font-size: 16px;
+    }
+
+    .actions {
+        justify-content: space-between;
+    }
+}
 
 /* ========================
    INFO MODAL

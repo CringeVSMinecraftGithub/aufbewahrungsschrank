@@ -432,35 +432,29 @@ if (status === "expired") div.classList.add("expired");
 if (status === "soon") div.classList.add("soon");
 
 div.innerHTML = `
-    <div class="product-main">
-        <strong>
-            ${p.name}
-            ${
-                getExpiryStatus(p.expiry) === "expired"
-                    ? '<span class="status-icon">❌</span>'
-                    : getExpiryStatus(p.expiry) === "soon"
-                    ? '<span class="status-icon">⚠️</span>'
-                    : ''
-            }
-        </strong>
-
+    <div class="product-name">
+        ${p.name}
+        ${
+            getExpiryStatus(p.expiry) === "expired"
+                ? '<span class="status-icon">❌</span>'
+                : getExpiryStatus(p.expiry) === "soon"
+                ? '<span class="status-icon">⚠️</span>'
+                : ''
+        }
         <span class="quantity">x${p.quantity ?? 1}</span>
     </div>
 
     <div class="actions">
         <button class="edit-btn">✏️</button>
-
         <button
             class="to-shopping-btn"
             title="Zur Einkaufsliste"
             onclick="addFromStockToShopping('${p.id}')"
-        >
-            🛒
-        </button>
-
+        >🛒</button>
         <button class="delete-btn">🗑️</button>
     </div>
 `;
+
 
 
 // Popup nur bei Klick auf Produkt (nicht Buttons / Drag)
